@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="admin/_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William's | 欢迎登陆</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../../static/css/me.css">
+</head>
+
+<body>
+    <!--Navigation-->
+    <nav th:replace="admin/_fragments :: menu(0)" class="ui inverted attached segment m-padded-mini m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">William's</h2>
+                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <div class="right m-item m-mobile-hide menu">
+                    <div class="ui dropdown item">
+                        <div class="text">
+                            <img class="ui avatar image" src="https://picsum.photos/id/338/2000/1333" style="width: 28px; height: 28px">
+                            William
+                        </div>
+                        <i class="dropdown icon"></i>
+                        <div class="menu">
+                            <a href="#" th:href="@{/admin/logout}" class="item">注销</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+    
+    <!--Second Navigation-->
+    <div class="ui attached pointing menu">
+        <div class="ui container">
+            <div class="right menu">
+                <a href="#" class="item">发布</a>
+                <a href="#" class="item">列表</a>
+            </div>
+        </div>
+    </div>
+    
+    <!--Content-->
+    <br>
+
+    <div class="m-container-small m-padded-tb-big">
+        <div class="ui container animate__animated animate__wobble">
+
+            <img src="https://picsum.photos/400/250?random=1" class="ui rounded bordered centered image"><img/>
+            <br>
+            <br>
+            <br>
+            <div class="ui container">
+                <h1 style="text-align:center">Hi, <span th:text="${session.user.nickname}"></span>!</h1>
+                <div style="font-size:25px;text-align:center">Wish you have a nice day.</div>
+            </div>
+        </div>
+    </div>
+    <br>
+
+    <!--    Page Bottom-->
+    <footer th:replace="admin/_fragments :: footer" class="ui inverted vertical segment m-padded-tb-big">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="../static/images/wechat.png" th:src="@{/images/wechat.png}" class="ui rounded image" alt="" style="width: 110px">
+                        </div>
+                    </div>
+                </div>
+                <div class="five wide column">
+                    <h4 class="ui inverted header m-text-opacity-eight">Nearly Updated</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">User Story</a>
+                        <a href="#" class="item">User Story</a>
+                        <a href="#" class="item">User Story</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-opacity-eight">Contact Me</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item"><i class="envelope outline icon"></i>Email</a>
+                        <a href="#" class="item"><i class="mobile alternate icon"></i>Telephone</a>
+                        <a href="#" class="item"><i class="linkedin icon"></i>Linkedin</a>
+                    </div>
+                </div>
+                <div class="five wide column">
+                    <h4 class="ui inverted header m-text-opacity-eight">William's</h4>
+                    <div class="ui inverted link list">
+                        <p class="m-text-opacity-six">这是我的个人博客，期待你的访问！</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">我的博客已经上线</h4>
+                <p id="htmer_time" class="item m-text-thin"></p>
+            </div>
+            <br>
+            <p class="m-text-thin m-text-spaced m-text-opacity-eight">Copyright @ 2021 William's by XinyuWei</p>
+        </div>
+    </footer>
+
+    <th:block th:replace="admin/_fragments :: script">
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+    </th:block>
+
+    <script>
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+
+        $('.ui.dropdown').dropdown();
+
+        // 运行时间统计
+        function secondToDate(second) {
+            if (!second) {
+                return 0;
+            }
+            var time = new Array(0, 0, 0, 0, 0);
+            if (second >= 365 * 24 * 3600) {
+                time[0] = parseInt(second / (365 * 24 * 3600));
+                second %= 365 * 24 * 3600;
+            }
+            if (second >= 24 * 3600) {
+                time[1] = parseInt(second / (24 * 3600));
+                second %= 24 * 3600;
+            }
+            if (second >= 3600) {
+                time[2] = parseInt(second / 3600);
+                second %= 3600;
+            }
+            if (second >= 60) {
+                time[3] = parseInt(second / 60);
+                second %= 60;
+            }
+            if (second > 0) {
+                time[4] = second;
+            }
+            return time;
+        }
+        function setTime() {
+            /*此处为网站的创建时间*/
+            var create_time = Math.round(new Date(Date.UTC(2021, 03, 21, 05, 55, 15)).getTime() / 1000);
+            var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+            currentTime = secondToDate((timestamp - create_time));
+            currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
+                + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
+                + '秒';
+            document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+        }
+        setInterval(setTime, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head(~{::title})">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>William's | 关于我</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css">
+</head>
+
+<body>
+    <!--Navigation-->
+    <nav th:replace="_fragments :: menu(5)" class="ui inverted attached segment m-padded-mini m-shadow-small">
+        <div class="ui container">
+            <div class="ui inverted secondary stackable menu">
+                <h2 class="ui teal header item">William's</h2>
+                <a href="#" class="m-item item m-mobile-hide"><i class="home icon"></i>首页</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="idea icon"></i>分类</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="tags icon"></i>标签</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="clone icon"></i>归档</a>
+                <a href="#" class="m-item item m-mobile-hide"><i class="info icon"></i>关于我</a>
+                <div class="right m-item item m-mobile-hide">
+                    <div class="ui icon input">
+                        <input type="text" placeholder="Search...">
+                        <i class="search link icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+            <i class="sidebar icon"></i>
+        </a>
+    </nav>
+
+<!--    Main Page-->
+    <div id="waypoint" class="m-container-small m-padded-tb-big">
+        <div class="ui container m-margin-top-sobig">
+            <div class="ui stackable grid">
+                <div class="eleven wide column">
+                    <div class="ui segment">
+                        <img src="../static/images/title.png" th:src="@{/images/title.png}" class="ui rounded image" style="width: 100%">
+                    </div>
+                </div>
+                <div class="five wide column">
+                    <div class="ui top attached segment">
+                        <a class="ui header">关于我</a>
+                    </div>
+                    <div class="ui attached segment">
+                        <p class="m-text"></p>
+                        <p class="m-text"></p>
+                    </div>
+                    <div class="ui attached segment" id="mytags">
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">编程</div>
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">打篮球</div>
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">游泳</div>
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">看电影</div>
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">看小说</div>
+                        <div class="ui green basic left pointing label m-margin-tb-tiny">...</div>
+                    </div>
+                    <div class="ui attached segment" id="myskills">
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">Java</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">Spring</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">Python</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">Linux</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">MySQL</div>
+                        <div class="ui orange basic left pointing label m-margin-tb-tiny">...</div>
+                    </div>
+                    <div class="ui bottom attached segment">
+                        <a href="https://linkedin.com/in/xinyu-wei-william/" target="_blank" class="ui github circular icon button" title="点击访问LinkedIn"><i class="linkedin icon"></i></a>
+                        <a href="https://github.com/KeydoO" target="_blank" class="ui github circular icon button" title="点击访问GitHub"><i class="github icon"></i></a>
+                        <a class="ui wechat circular icon button" title="点击查看二维码" ><i class="wechat icon"></i></a>
+                    </div>
+                    <div class="ui wechat-qr flowing popup transition hidden" style="text-align: center">
+                        <img src="../static/images/wechat.png" th:src="@{/images/wechat.png}" class="ui rounded image" style="width: 100px;">
+                        <div class="ui m-text">扫码添加微信</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <!--    Right Mini Navigator-->
+    <div>
+        <div id="toolbar" class="m-padded-small m-fixed m-right-bottom" style="display: none">
+            <div class="ui vertical icon buttons">
+                <a class="ui wechat olive icon button" title="手机扫码阅读"><i class="mobile alternate icon"></i></a>
+                <div id="toTop-button" class="ui yellow button"><i class="chevron up icon"></i></div>
+            </div>
+        </div>
+
+        <div class="ui toc-container flowing popup transition hidden" style="width: 200px;">
+            <ol class="js-toc"></ol>
+        </div>
+
+        <div id="qrcode" class="ui wechat-qr flowing popup transition hidden" style="width: 110px !important;">
+        </div>
+    </div>
+
+    <!--Page Bottom-->
+    <footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-titan">
+        <div class="ui center aligned container">
+            <div class="ui inverted divided stackable grid">
+                <div class="three wide column">
+                    <div class="ui inverted link list">
+                        <div class="item">
+                            <img src="../static/images/wechat.png" th:src="@{/images/wechat.png}" class="ui rounded image" alt="" style="width: 110px">
+                        </div>
+                    </div>
+                </div>
+                <div class="five wide column">
+                    <h4 class="ui inverted header m-text-opacity-eight">Nearly Updated</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item">User Story</a>
+                        <a href="#" class="item">User Story</a>
+                        <a href="#" class="item">User Story</a>
+                    </div>
+                </div>
+                <div class="three wide column">
+                    <h4 class="ui inverted header m-text-opacity-eight">Contact Me</h4>
+                    <div class="ui inverted link list">
+                        <a href="#" class="item"><i class="envelope outline icon"></i>Email</a>
+                        <a href="#" class="item"><i class="mobile alternate icon"></i>Telephone</a>
+                        <a href="#" class="item"><i class="linkedin icon"></i>Linkedin</a>
+                    </div>
+                </div>
+                <div class="five wide column">
+                    <h4 class="ui inverted header m-text-opacity-eight">William's</h4>
+                    <div class="ui inverted link list">
+                        <p class="m-text-opacity-six">这是我的个人博客，期待你的访问！</p>
+                    </div>
+                </div>
+            </div>
+            <div class="ui inverted section divider"></div>
+            <div class="four wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">我的博客已经上线</h4>
+                <p id="htmer_time" class="item m-text-thin"></p>
+            </div>
+            <br>
+            <p class="m-text-thin m-text-spaced m-text-opacity-eight">Copyright © 2021 William's by XinyuWei</p>
+        </div>
+
+    </footer>
+
+    <!--    script-->
+    <th:block th:replace="_fragments :: script">
+        <!--    CDN-->
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/jquery.scrollto@2.1.3/jquery.scrollTo.min.js"></script>
+        <!--    Local-->
+        <script src="../static/lib/prism/prism.js"></script>
+        <script src="../static/lib/tocbot/tocbot.min.js"></script>
+        <script src="../static/lib/qrcode/qrcode.min.js"></script>
+        <script src="../static/lib/waypoints/jquery.waypoints.min.js"></script>
+    </th:block>
+
+    <!--    script-->
+    <script>
+        // 手机端隐藏菜单
+        $('.menu.toggle').click(function () {
+            $('.m-item').toggleClass('m-mobile-hide');
+        });
+
+        // 右侧小导航栏
+        var waypoint = new Waypoint({
+            element: document.getElementById('waypoint'),
+            handler: function(direction) {
+                if (direction === 'down') {
+                    $('#toolbar').show(300);
+                } else {
+                    $('#toolbar').hide(500);
+                }
+            }
+        })
+
+        tocbot.init({
+            // Where to render the table of contents.
+            tocSelector: '.js-toc',
+            // Where to grab the headings to build the table of contents.
+            contentSelector: '.js-toc-content',
+            // Which headings to grab inside of the contentSelector element.
+            headingSelector: 'h5',
+            // For headings inside relative or absolute positioned containers within content.
+            hasInnerContainers: true,
+        });
+
+        $('.toc.button').popup({
+            popup: $('.toc-container.popup'),
+            on: 'click',
+            position: 'left center'
+        })
+
+        $('#toComment-button').click(function () {
+            $(window).scrollTo($("#comment-container"), 500)
+        })
+
+        // 弹出
+        $('.wechat').popup({
+            on: "click",
+            off: "",
+            popup : $('.wechat-qr'),
+            position: 'left center'
+        })
+
+        // 生成二维码
+        var serurl = "127.0.0.1:8080";
+        var url = /*[[@{index}]]*/"";
+        var qrcode = new QRCode("qrcode", {
+            text: serurl+url,
+            width: 100,
+            height: 100,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+
+        // 回到顶端
+        $('#toTop-button').click(function () {
+            $(window).scrollTo(0, 500)
+        })
+
+        // 运行时间统计
+        function secondToDate(second) {
+            if (!second) {
+                return 0;
+            }
+            var time = new Array(0, 0, 0, 0, 0);
+            if (second >= 365 * 24 * 3600) {
+                time[0] = parseInt(second / (365 * 24 * 3600));
+                second %= 365 * 24 * 3600;
+            }
+            if (second >= 24 * 3600) {
+                time[1] = parseInt(second / (24 * 3600));
+                second %= 24 * 3600;
+            }
+            if (second >= 3600) {
+                time[2] = parseInt(second / 3600);
+                second %= 3600;
+            }
+            if (second >= 60) {
+                time[3] = parseInt(second / 60);
+                second %= 60;
+            }
+            if (second > 0) {
+                time[4] = second;
+            }
+            return time;
+        }
+        function setTime() {
+            /*此处为网站的创建时间*/
+            var create_time = Math.round(new Date(Date.UTC(2021, 03, 21, 05, 55, 15)).getTime() / 1000);
+            var timestamp = Math.round((new Date().getTime() + 8 * 60 * 60 * 1000) / 1000);
+            currentTime = secondToDate((timestamp - create_time));
+            currentTimeHtml = currentTime[0] + '年' + currentTime[1] + '天'
+                + currentTime[2] + '时' + currentTime[3] + '分' + currentTime[4]
+                + '秒';
+            document.getElementById("htmer_time").innerHTML = currentTimeHtml;
+        }
+        setInterval(setTime, 1000);
+    </script>
+</body>
+</html>
